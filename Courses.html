@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Courses.css">
+    <title>Courses Table</title>
+</head>
+<body>
+    <div id="courses-table" class="courses-table">
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const coursesTable = document.getElementById('courses-table');
+
+
+    const coursesData = [
+        { code: 'JS101', name: 'JavaScript', credits: 3, instructor: 'Dr. Smith' },
+        { code: 'PY201', name: 'Python', credits: 4, instructor: 'Prof. Johnson' },
+        { code: 'WB301', name: 'Java', credits: 4, instructor: 'Dr. Brown' },
+        { code: 'CS101', name: 'WebDevelopment', credits: 3, instructor: 'Dr. Smith' },
+        { code: 'C0201', name: 'C++', credits: 4, instructor: 'Prof. Johnson' },
+        { code: 'C301', name: 'C', credits: 4, instructor: 'Dr. Brown' }
+    ];
+
+    const table = document.createElement('table');
+    table.classList.add('courses-table');
+
+
+    const headerRow = document.createElement('tr');
+    headerRow.innerHTML = '<th>Course Code</th><th>Course Name</th><th>Credits</th><th>Instructor</th>';
+    table.appendChild(headerRow);
+
+ 
+    coursesData.forEach(course => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${course.code}</td><td>${course.name}</td><td>${course.credits}</td><td>${course.instructor}</td>`;
+        table.appendChild(row);
+    });
+
+    coursesTable.appendChild(table);
+});
+
+    </script>
+</body>
+</html>

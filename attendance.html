@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Sheet</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    }
+
+    h1 {
+    text-align: center;
+    }
+
+    .attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+
+    .attendance-table th, .attendance-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    }
+
+    .attendance-checkbox {
+    margin: 0 auto;
+    display: block;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Attendance Sheet</h1>
+    <div id="attendance-table-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const attendanceTableContainer = document.getElementById('attendance-table-container');
+
+    function createAttendanceTable(studentNames) {
+        const table = document.createElement('table');
+        table.classList.add('attendance-table');
+
+     
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = `<th>Student Name</th><th>Present</th><th>Absent</th>`;
+        table.appendChild(headerRow);
+
+        studentNames.forEach(studentName => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${studentName}</td>
+                <td><input type="checkbox" class="attendance-checkbox" data-student="${studentName}" data-status="present"></td>
+                <td><input type="checkbox" class="attendance-checkbox" data-student="${studentName}" data-status="absent"></td>
+            `;
+            table.appendChild(row);
+        });
+
+        attendanceTableContainer.appendChild(table);
+    }
+    const studentNames = ['John Doe', 'Jane Smith', 'Michael Johnson', 'Emily Brown'];
+
+    createAttendanceTable(studentNames);
+});
+
+    </script>
+</body>
+</html>
+

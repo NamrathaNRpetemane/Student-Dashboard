@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="setting.css">
+    <title>Settings</title>
+</head>
+<body>
+    <div class="settings-container">
+        <h2>Change Password</h2>
+        <form id="change-password-form">
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" name="current-password" required>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+            <label for="confirm-new-password">Confirm New Password:</label>
+            <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const changePasswordForm = document.getElementById('change-password-form');
+
+    changePasswordForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('new-password').value;
+        const confirmNewPassword = document.getElementById('confirm-new-password').value;
+
+        if (newPassword !== confirmNewPassword) {
+            alert("Passwords do not match. Please try again.");
+            return;
+        }
+
+        // Save new password logic here
+        console.log(`Current Password: ${currentPassword}, New Password: ${newPassword}`);
+
+        // Reset form after submission
+        changePasswordForm.reset();
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Timetable</title>
+
+    <style>
+        .timetable-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.timetable-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timetable-table th, .timetable-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+    </style>
+
+    
+</head>
+<body>
+    <div id="timetable-container" class="timetable-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const timetableContainer = document.getElementById('timetable-container');
+
+    const timetableData = [
+        { time: '8:00 AM', monday: 'python', tuesday: 'C++', wednesday: 'java', thursday: 'JavaScript', friday: 'PHP' },
+        { time: '10:00 AM', monday: 'C++', tuesday: 'python', wednesday: 'JavaScript', thursday: 'PHP', friday: 'java' },
+        { time: '2:00 PM', monday: 'DBMS', tuesday: 'DataStructure', wednesday: 'python', thursday: 'java', friday: 'JavaScript' },
+        { time: '2:00 PM', monday: 'C', tuesday: 'OS', wednesday: 'DS', thursday: 'Web', friday: 'java' }
+    ];
+
+    const table = document.createElement('table');
+    table.classList.add('timetable-table');
+
+    const headerRow = document.createElement('tr');
+    headerRow.innerHTML = '<th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>';
+    table.appendChild(headerRow);
+
+    timetableData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${item.time}</td><td>${item.monday}</td><td>${item.tuesday}</td><td>${item.wednesday}</td><td>${item.thursday}</td><td>${item.friday}</td>`;
+        table.appendChild(row);
+    });
+
+    timetableContainer.appendChild(table);
+});
+
+    </script>
+</body>
+</html>

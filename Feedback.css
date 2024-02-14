@@ -1,0 +1,44 @@
+.feedback-container {
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.feedback-container h2 {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#feedback-form {
+    display: inline-block;
+    text-align: center;
+    display: flex;
+    
+}
+
+#feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#feedback-form select,
+#feedback-form button {
+    margin-top: 10px;
+}
+
+#feedback-form button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#feedback-form button:hover {
+    background-color: #0056b3;
+}
